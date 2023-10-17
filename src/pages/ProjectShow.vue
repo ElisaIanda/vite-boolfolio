@@ -1,5 +1,6 @@
 <script>
 import axios from "axios";
+import dayjs from "dayjs";
 
 export default {
     data() {
@@ -17,8 +18,11 @@ export default {
         },
         getImage(project) {
             return `http://127.0.0.1:8000/storage/${project.image}`
-        }
+        },
 
+        formatDate(date) {
+            return dayjs(date).format("DD/MM/YYYY");
+        },
     },
     mounted() {
         this.fetchData();
@@ -45,7 +49,7 @@ export default {
                 </div>
 
                 <p class="card-text">
-                    <small class="text-muted">{{ project.date }}</small>
+                    <small class="text-muted">{{ formatDate(project.date) }}</small>
                 </p>
             </div>
         </div>
