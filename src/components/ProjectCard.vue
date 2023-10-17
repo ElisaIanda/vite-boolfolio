@@ -25,6 +25,7 @@ export default {
         <div class="card-body">
             <h5 class="card-title">{{ project.title }}</h5>
             <p class="card-text">{{ project.description }}</p>
+            <div>{{ project.type.title }}</div>
             <div class="d-flex gap-3 mb-3">
                 <span v-for="technology in project.technologies" :key="technology.id" class="badge bg-info">
                     {{ technology.title }}

@@ -16,8 +16,8 @@ export default {
     };
   },
   methods: {
-    fetchData() {
-      axios.get( "http://127.0.0.1:8000/api/projects").then((response) => {
+    fetchData(url) {
+      axios.get(url ?? "http://127.0.0.1:8000/api/projects").then((response) => {
 
         this.projects = response.data.data;
 
@@ -45,6 +45,10 @@ export default {
       </div>
     </div>
 
+    <div class="d-flex justify-content-center">
+      <a v-for="singlePageLink in pagination.links" class="btn btn-link" @click="fetchData(singlePageLink.url)"
+        v-html="singlePageLink.label"></a>
+    </div>
   </main>
 
 </template>
