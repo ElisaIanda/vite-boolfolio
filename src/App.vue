@@ -37,18 +37,7 @@ export default {
   <TheHeader></TheHeader>
 
   <main>
-    <div class="container p-5">
-      <div class="row">
-        <div v-for="project in projects" :key="project.id" class="col-md-4">
-          <ProjectCard :project="project" />
-        </div>
-      </div>
-    </div>
-
-    <div class="d-flex justify-content-center">
-      <a v-for="singlePageLink in pagination.links" class="btn btn-link" @click="fetchData(singlePageLink.url)"
-        v-html="singlePageLink.label"></a>
-    </div>
+    <router-view></router-view>
   </main>
 
 </template>

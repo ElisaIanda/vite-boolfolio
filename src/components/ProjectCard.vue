@@ -33,7 +33,10 @@ export default {
             </div>
 
             <a :href="project.link" class="btn btn-primary">GitHub Link</a>
-            
+
+        </div>
+        <div class="card-footer">
+            <router-link :to="{ name: 'project.show', params: { id: project.id } }">Vedi dettagli</router-link>
         </div>
     </div>
 </template>
